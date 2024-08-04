@@ -121,7 +121,11 @@ local function make_statusline(files)
 			text = file.name
 		end
 
-		table.insert(result, "%#" .. color .. "# " .. text)
+		if index < count then
+			table.insert(result, "%#" .. color .. "# " .. text .. " %*")
+		else
+			table.insert(result, "%#" .. color .. "# " .. text)
+		end
 	end
 	if M.settings.overflow == "ellipsis" then
 		table.insert(result, make_ellipsis())
