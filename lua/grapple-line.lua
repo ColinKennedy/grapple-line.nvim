@@ -111,7 +111,9 @@ end
 ---@return string
 local function make_statusline(files)
 	local result = {}
-	for _, file in ipairs(files) do
+	local count = #files
+
+	for index, file in ipairs(files) do
 		local color = file.current and M.settings.colors.active or M.settings.colors.inactive
 
 		local text = ""
